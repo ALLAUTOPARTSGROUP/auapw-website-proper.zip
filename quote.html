@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Free Quote | AUAPW</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="navbar-mount"></div>
+
+<div style="min-height:100vh;background:#CCCCCC;padding-top:56px">
+  <div style="background:linear-gradient(160deg,#E8E8E8 0%,#DEDEDE 40%,#E4E4E4 60%,#D8D8D8 100%);border-bottom:1px solid var(--silver-lt)">
+    <div class="metal-line"></div>
+    <div class="container" style="padding-top:3.5rem;padding-bottom:3rem">
+      <div class="section-eye"><div class="eye-line"></div><span class="eyebrow">No Obligation</span></div>
+      <h1 class="display-md" style="font-size:clamp(1.75rem,4vw,3.5rem);color:var(--ink)">Request a Free Quote</h1>
+      <p style="margin-top:.75rem;font-size:14px;color:var(--steel);max-width:520px">Fill out the form and our team will find the best available parts from our 2,000+ yard network. Response within 24 hours.</p>
+    </div>
+  </div>
+
+  <div class="container" style="padding-top:3rem;padding-bottom:4rem">
+    <div style="display:grid;grid-template-columns:1fr 2fr;gap:2.5rem;align-items:start" id="main-grid">
+
+      <!-- Sidebar -->
+      <div style="display:flex;flex-direction:column;gap:1rem">
+        <div class="card" style="padding:1.25rem;display:flex;align-items:flex-start;gap:.875rem">
+          <span style="font-size:1.25rem;flex-shrink:0">⚡</span>
+          <div><p style="font-size:13px;font-weight:700;color:var(--ink);margin-bottom:.25rem">24-Hour Response</p><p style="font-size:12px;color:var(--chrome);line-height:1.6">Our team contacts you with options within one business day</p></div>
+        </div>
+        <div class="card" style="padding:1.25rem;display:flex;align-items:flex-start;gap:.875rem">
+          <span style="font-size:1.25rem;flex-shrink:0">🛡️</span>
+          <div><p style="font-size:13px;font-weight:700;color:var(--ink);margin-bottom:.25rem">6-Month Warranty</p><p style="font-size:12px;color:var(--chrome);line-height:1.6">Every part includes full return &amp; replacement coverage</p></div>
+        </div>
+        <div class="card" style="padding:1.25rem;display:flex;align-items:flex-start;gap:.875rem">
+          <span style="font-size:1.25rem;flex-shrink:0">💰</span>
+          <div><p style="font-size:13px;font-weight:700;color:var(--ink);margin-bottom:.25rem">Best Price Match</p><p style="font-size:12px;color:var(--chrome);line-height:1.6">We compare 2,000+ yards to find the lowest price</p></div>
+        </div>
+        <div class="card" style="padding:1.25rem;display:flex;align-items:flex-start;gap:.875rem">
+          <span style="font-size:1.25rem;flex-shrink:0">🚚</span>
+          <div><p style="font-size:13px;font-weight:700;color:var(--ink);margin-bottom:.25rem">Nationwide Delivery</p><p style="font-size:12px;color:var(--chrome);line-height:1.6">Ships to all 50 states in 7–10 business days</p></div>
+        </div>
+        <div class="sidebar-dark">
+          <div class="metal-line" style="margin-bottom:1.25rem"></div>
+          <p style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#787878;margin-bottom:.375rem">Prefer to Call?</p>
+          <a href="tel:8888185001" style="font-size:1.5rem;font-weight:700;color:#fff;display:block;margin-bottom:.25rem;text-decoration:none">(888) 818-5001</a>
+          <p style="font-size:11px;color:#787878">Mon–Sat 8am–6pm PST</p>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div id="form-wrap">
+        <div style="background:linear-gradient(160deg,#E8E8E8 0%,#DEDEDE 40%,#E4E4E4 60%,#D8D8D8 100%);border:1px solid var(--silver-lt);border-radius:3px;padding:2rem 2.5rem">
+          <div class="metal-line" style="margin-bottom:1.75rem"></div>
+          <h2 class="display-md" style="font-size:1.4rem;color:var(--ink);margin-bottom:1.5rem">Your Details</h2>
+
+          <form id="quote-form">
+            <!--
+              ══════════════════════════════════════════════
+              ONE-TIME SETUP — 2 minutes:
+              1. Go to https://web3forms.com
+              2. Enter: auapworld@gmail.com
+              3. Click "Create Access Key"
+              4. Check auapworld@gmail.com inbox → click confirm link
+              5. Copy the key → paste it below replacing PASTE_KEY_HERE
+              Done! Every quote goes to auapworld@gmail.com
+              ══════════════════════════════════════════════
+            -->
+            <input type="hidden" name="access_key" value="PASTE_KEY_HERE">
+            <input type="hidden" name="subject" value="🚗 New Quote Request — AUAPW Website">
+            <input type="hidden" name="from_name" value="AUAPW Website">
+            <input type="hidden" name="redirect" value="false">
+            <input type="hidden" name="botcheck" value="">
+
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem">
+              <div>
+                <label class="input-label">Full Name *</label>
+                <input required type="text" name="Customer Name" placeholder="John Smith" class="input">
+              </div>
+              <div>
+                <label class="input-label">Phone Number *</label>
+                <input required type="tel" name="Phone Number" placeholder="(555) 123-4567" class="input">
+              </div>
+            </div>
+            <div style="margin-bottom:1.5rem">
+              <label class="input-label">Email Address</label>
+              <input type="email" name="email" placeholder="john@example.com" class="input">
+            </div>
+
+            <div style="height:1px;background:#D4D4D4;margin-bottom:1.5rem"></div>
+            <h3 style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:var(--ink);margin-bottom:1.25rem">Vehicle &amp; Part Details</h3>
+
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-bottom:1rem">
+              <div>
+                <label class="input-label">Year *</label>
+                <select required name="Year" class="input"><option value="">Year</option></select>
+              </div>
+              <div>
+                <label class="input-label">Make *</label>
+                <select required name="Make" class="input"><option value="">Make</option></select>
+              </div>
+              <div>
+                <label class="input-label">Model *</label>
+                <select required name="Model" class="input" disabled><option value="">Select Make First</option></select>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem">
+              <div>
+                <label class="input-label">Part Needed *</label>
+                <select required name="Part Needed" class="input"><option value="">Select Part</option></select>
+              </div>
+              <div>
+                <label class="input-label">Your State</label>
+                <select name="State" class="input">
+                  <option value="">Select State</option>
+                  <option>Alabama</option><option>Alaska</option><option>Arizona</option><option>Arkansas</option>
+                  <option>California</option><option>Colorado</option><option>Connecticut</option><option>Delaware</option>
+                  <option>Florida</option><option>Georgia</option><option>Hawaii</option><option>Idaho</option>
+                  <option>Illinois</option><option>Indiana</option><option>Iowa</option><option>Kansas</option>
+                  <option>Kentucky</option><option>Louisiana</option><option>Maine</option><option>Maryland</option>
+                  <option>Massachusetts</option><option>Michigan</option><option>Minnesota</option><option>Mississippi</option>
+                  <option>Missouri</option><option>Montana</option><option>Nebraska</option><option>Nevada</option>
+                  <option>New Hampshire</option><option>New Jersey</option><option>New Mexico</option><option>New York</option>
+                  <option>North Carolina</option><option>North Dakota</option><option>Ohio</option><option>Oklahoma</option>
+                  <option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option><option>South Carolina</option>
+                  <option>South Dakota</option><option>Tennessee</option><option>Texas</option><option>Utah</option>
+                  <option>Vermont</option><option>Virginia</option><option>Washington</option><option>West Virginia</option>
+                  <option>Wisconsin</option><option>Wyoming</option>
+                </select>
+              </div>
+            </div>
+            <div style="margin-bottom:1.5rem">
+              <label class="input-label">Additional Notes (VIN, engine size, trim level, etc.)</label>
+              <textarea name="Notes" rows="3" placeholder="Any extra details that help us find the right part faster…" class="input" style="resize:none"></textarea>
+            </div>
+
+            <!-- Error message -->
+            <div id="q-error" style="display:none;background:#fff5f5;border:1px solid #fecaca;border-radius:2px;padding:1rem;margin-bottom:1rem;font-size:13px;color:#b91c1c">
+              ⚠ Something went wrong. Please call us at <strong>(888) 818-5001</strong> or try again.
+            </div>
+
+            <button type="submit" id="q-btn" class="btn btn-primary" style="width:100%">
+              <span id="q-btn-text">Send Free Quote Request →</span>
+              <span id="q-spinner" style="display:none;width:16px;height:16px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;display:none"></span>
+            </button>
+            <p style="font-size:11px;color:var(--chrome);text-align:center;margin-top:.75rem">Response within 24 hours · No spam · No obligation</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="footer-mount"></div>
+<script src="_shared.js"></script>
+<script>
+document.getElementById('navbar-mount').innerHTML = renderNavbar('');
+document.getElementById('footer-mount').innerHTML = renderFooter();
+
+// Populate dropdowns
+const qf = document.getElementById('quote-form');
+const ySel = qf.querySelector('[name=Year]');
+const maSel = qf.querySelector('[name=Make]');
+const moSel = qf.querySelector('[name=Model]');
+const pSel = qf.querySelector('[name="Part Needed"]');
+
+YEARS.forEach(y => { const o=document.createElement('option'); o.value=o.textContent=y; ySel.appendChild(o); });
+CAR_MAKES.forEach(m => { const o=document.createElement('option'); o.value=o.textContent=m; maSel.appendChild(o); });
+PART_CATEGORIES.forEach(cat => {
+  const og=document.createElement('optgroup'); og.label=cat.label;
+  cat.parts.forEach(p => { const o=document.createElement('option'); o.value=o.textContent=p; og.appendChild(o); });
+  pSel.appendChild(og);
+});
+maSel.addEventListener('change', () => {
+  moSel.innerHTML='<option value="">Select Model</option>';
+  moSel.disabled=!maSel.value;
+  if (maSel.value) (CAR_MODELS[maSel.value]||[]).forEach(m=>{const o=document.createElement('option');o.value=o.textContent=m;moSel.appendChild(o)});
+});
+
+// URL prefill (when arriving from search page)
+const sp=new URLSearchParams(location.search);
+if(sp.get('year')) ySel.value=sp.get('year');
+if(sp.get('make')){ maSel.value=sp.get('make'); maSel.dispatchEvent(new Event('change')); setTimeout(()=>{ if(sp.get('model')) moSel.value=sp.get('model'); },80); }
+
+// Submit handler → Web3Forms API
+qf.addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn=document.getElementById('q-btn');
+  const btnText=document.getElementById('q-btn-text');
+  const spinner=document.getElementById('q-spinner');
+  const errBox=document.getElementById('q-error');
+
+  btn.disabled=true;
+  btnText.textContent='Sending…';
+  spinner.style.display='inline-block';
+  errBox.style.display='none';
+
+  const data=new FormData(this);
+  const json=Object.fromEntries(data);
+
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body: JSON.stringify(json)
+    });
+    const result = await res.json();
+
+    if (result.success) {
+      // Show success screen
+      document.getElementById('form-wrap').innerHTML = `
+        <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:1.75rem;padding:4rem 2rem;background:linear-gradient(160deg,#E8E8E8 0%,#DEDEDE 40%,#E4E4E4 60%,#D8D8D8 100%);border:1px solid var(--silver-lt);border-radius:3px">
+          <div class="metal-line" style="width:100%"></div>
+          <div style="width:80px;height:80px;border-radius:50%;border:2px solid var(--chrome);display:flex;align-items:center;justify-content:center;font-size:2.25rem">✓</div>
+          <div>
+            <h3 style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:600;color:var(--ink);margin-bottom:.75rem">Quote Request Sent!</h3>
+            <p style="font-size:14px;color:var(--steel);max-width:420px;line-height:1.8;margin:0 auto">
+              Thank you, <strong>${json['Customer Name']}</strong>.<br>
+              Our team will call <strong>${json['Phone Number']}</strong> within 24 hours about the<br>
+              <strong>${json['Year']} ${json['Make']} ${json['Model']} — ${json['Part Needed']}</strong>.
+            </p>
+          </div>
+          <div style="background:#CCCCCC;border:1px solid var(--silver-lt);border-radius:2px;padding:1.25rem 2rem;font-size:13px;color:var(--steel);line-height:1.8">
+            Confirmation sent to: <strong>${json['email']||'your email'}</strong><br>
+            Need faster help? Call us:<br>
+            <a href="tel:8888185001" style="font-size:1.2rem;font-weight:700;color:var(--ink);text-decoration:none">(888) 818-5001</a>
+          </div>
+          <div style="display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center">
+            <a href="index.html" class="btn btn-primary" style="font-size:.65rem">Back to Home</a>
+            <a href="tel:8888185001" class="btn btn-outline" style="font-size:.65rem">📞 Call Now</a>
+          </div>
+        </div>`;
+    } else {
+      throw new Error(result.message);
+    }
+  } catch(err) {
+    btn.disabled=false;
+    btnText.textContent='Send Free Quote Request →';
+    spinner.style.display='none';
+    errBox.style.display='block';
+    console.error(err);
+  }
+});
+
+// Responsive
+function fixGrid(){ const g=document.getElementById('main-grid'); if(g) g.style.gridTemplateColumns=window.innerWidth<900?'1fr':'1fr 2fr'; }
+window.addEventListener('resize', fixGrid); fixGrid();
+</script>
+</body>
+</html>

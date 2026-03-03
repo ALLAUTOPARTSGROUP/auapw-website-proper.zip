@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Find Auto Parts | AUAPW — All Used Auto Parts Warehouse</title>
+<meta name="description" content="Search quality used auto parts by year, make, model. 2,000+ verified yards. 6-month warranty. Ships nationwide.">
+<link rel="stylesheet" href="style.css">
+<style>
+/* ══ SEARCH HERO ══ */
+.search-hero{background:repeating-linear-gradient(90deg,transparent 0,transparent 2px,rgba(255,255,255,.03) 2px,rgba(255,255,255,.03) 4px),linear-gradient(180deg,#1e1e1e 0%,#141414 60%,#1a1a1a 100%);padding-top:58px;position:relative;overflow:hidden}
+.search-hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.025) 1px,transparent 1px);background-size:28px 28px;pointer-events:none}
+.search-hero-top{position:relative;z-index:5;padding:3rem 1.5rem 2rem;text-align:center;max-width:900px;margin:0 auto}
+.search-hero-top h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:700;color:#fff;line-height:1;letter-spacing:-.02em;margin-bottom:.75rem}
+.search-hero-top h1 span{display:block;font-family:'Outfit',sans-serif;font-size:clamp(.7rem,1.5vw,.85rem);font-weight:700;letter-spacing:.35em;text-transform:uppercase;color:#606060;margin-bottom:.75rem}
+.search-hero-top p{font-size:.9rem;color:#505050;max-width:520px;margin:.75rem auto 0;line-height:1.6}
+.search-trust{display:flex;justify-content:center;gap:1.75rem;flex-wrap:wrap;margin-top:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(255,255,255,.06)}
+.search-trust-item{display:flex;align-items:center;gap:.4rem;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#484848}
+.search-trust-item .dot{width:4px;height:4px;border-radius:50%;background:#3a3a3a}
+
+/* ══ SEARCH WIDGET ══ */
+.search-widget-wrap{position:relative;z-index:10;padding:1.75rem 1.5rem 2.5rem;background:linear-gradient(180deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.2) 100%)}
+.search-widget{max-width:1040px;margin:0 auto;background:linear-gradient(160deg,#E8E8E8 0%,#DEDEDE 40%,#E4E4E4 60%,#D8D8D8 100%);border:1px solid #C0C0C0;border-top:1px solid #D8D8D8;border-radius:4px;box-shadow:0 20px 60px rgba(0,0,0,.5),0 4px 16px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.6);overflow:hidden}
+.search-widget-header{background:linear-gradient(180deg,#2a2a2a 0%,#1e1e1e 100%);padding:.8rem 1.75rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.search-widget-title{font-size:.6rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#A0A0A0}
+.search-widget-phone{display:flex;align-items:center;gap:.4rem;font-size:.75rem;font-weight:700;color:#C8C8C8;text-decoration:none;letter-spacing:.04em}
+.search-widget-phone:hover{color:#fff}
+.search-widget-body{padding:1.75rem 1.75rem 2rem}
+
+/* Dropdowns */
+.search-dropdowns{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:.875rem;margin-bottom:1.25rem}
+.search-drop-label{display:flex;align-items:center;gap:.4rem;font-size:.58rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#3a3a3a;margin-bottom:.45rem}
+.step-num{width:16px;height:16px;border-radius:50%;background:linear-gradient(135deg,#3a3a3a 0%,#1e1e1e 100%);color:#C8C8C8;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.search-select{width:100%;font-family:'Outfit',sans-serif;font-size:.875rem;font-weight:500;padding:.875rem 2.25rem .875rem 1rem;background:linear-gradient(180deg,#ECECEC 0%,#E0E0E0 100%);border:1.5px solid #B4B4B4;border-top-color:#A8A8A8;border-radius:3px;color:#141414;appearance:none;cursor:pointer;transition:border-color .15s,box-shadow .15s;background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23585858' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");background-repeat:no-repeat;background-position:right .75rem center;background-size:1rem;box-shadow:inset 0 1px 3px rgba(0,0,0,.12),inset 0 0 0 1px rgba(255,255,255,.3);outline:none}
+.search-select:focus{border-color:#606060;box-shadow:inset 0 1px 2px rgba(0,0,0,.08),0 0 0 3px rgba(80,80,80,.2)}
+.search-select:disabled{background:linear-gradient(180deg,#D4D4D4 0%,#C8C8C8 100%);color:#9A9A9A;cursor:not-allowed;border-color:#BBBBBB;opacity:.7}
+
+/* Part quick pills */
+.part-quick-picks{margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid #C4C4C4}
+.part-quick-title{font-size:.58rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:#6A6A6A;margin-bottom:.625rem}
+.part-pills{display:flex;flex-wrap:wrap;gap:.375rem}
+.part-pill{padding:.3rem .8rem;background:rgba(0,0,0,.05);border:1px solid #C0C0C0;border-radius:20px;font-size:.62rem;font-weight:600;letter-spacing:.05em;color:#4A4A4A;cursor:pointer;transition:all .15s;white-space:nowrap;user-select:none}
+.part-pill:hover{background:rgba(0,0,0,.1);border-color:#888;color:#141414}
+.part-pill.selected{background:linear-gradient(135deg,#2a2a2a 0%,#1a1a1a 100%);border-color:#141414;color:#E0E0E0}
+
+/* Action buttons */
+.search-btn-row{margin-top:1.5rem;display:flex;gap:.75rem;align-items:stretch;flex-wrap:wrap}
+.btn-search-main{flex:1;min-width:200px;background:linear-gradient(135deg,#c0392b 0%,#a93226 50%,#c0392b 100%);color:#fff;font-family:'Outfit',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:1.1rem 2rem;border:none;border-radius:3px;cursor:pointer;transition:all .2s;box-shadow:0 4px 20px rgba(192,57,43,.4),inset 0 1px 0 rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;gap:.5rem}
+.btn-search-main:hover{background:linear-gradient(135deg,#d44333 0%,#c0392b 50%,#d44333 100%);box-shadow:0 6px 28px rgba(192,57,43,.5);transform:translateY(-1px)}
+.btn-search-main:disabled{background:linear-gradient(135deg,#888 0%,#666 100%);box-shadow:none;cursor:not-allowed;transform:none;opacity:.6}
+.btn-call-alt{display:flex;align-items:center;gap:.45rem;padding:1.1rem 1.4rem;background:linear-gradient(135deg,rgba(255,255,255,.35) 0%,rgba(255,255,255,.15) 100%);border:1.5px solid #A8A8A8;border-radius:3px;font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#242424;text-decoration:none;transition:all .2s;box-shadow:inset 0 1px 0 rgba(255,255,255,.5);white-space:nowrap}
+.btn-call-alt:hover{background:linear-gradient(135deg,rgba(255,255,255,.55) 0%,rgba(255,255,255,.35) 100%);border-color:#686868;transform:translateY(-1px)}
+
+/* ══ RESULTS ══ */
+#results-area{background:#CCCCCC;min-height:60vh;padding-bottom:4rem}
+.results-header-bar{background:linear-gradient(160deg,#E8E8E8 0%,#DEDEDE 40%,#E4E4E4 60%,#D8D8D8 100%);border-bottom:1px solid #C0C0C0;padding:1.25rem 0}
+.results-header-bar .rh-inner{max-width:1280px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.results-title{font-size:1.1rem;font-weight:700;color:var(--ink)}
+.results-subtitle{font-size:12px;color:var(--chrome);margin-top:2px}
+.results-notice{font-size:11px;color:var(--chrome);font-style:italic}
+
+.result-card{background:linear-gradient(160deg,#E8E8E8 0%,#DEDEDE 40%,#E4E4E4 60%,#D8D8D8 100%);border:1px solid #C4C4C4;border-top-color:#D4D4D4;border-radius:3px;padding:1.5rem;display:flex;align-items:stretch;gap:1.5rem;box-shadow:0 2px 10px rgba(0,0,0,.1),inset 0 1px 0 rgba(255,255,255,.5);transition:box-shadow .2s,transform .2s;position:relative;overflow:hidden}
+.result-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,#B8B8B8 0%,#888 100%)}
+.result-card.in-stock::before{background:linear-gradient(180deg,#27ae60 0%,#1e8449 100%)}
+.result-card:hover{box-shadow:0 6px 24px rgba(0,0,0,.18),inset 0 1px 0 rgba(255,255,255,.5);transform:translateY(-1px)}
+.result-left{flex:1;padding-left:.25rem}
+.result-yard-row{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:.875rem}
+.result-yard-name{font-size:16px;font-weight:700;color:var(--ink)}
+.result-yard-loc{font-size:12px;color:var(--chrome);margin-top:2px}
+.result-price{font-family:'Playfair Display',serif;font-size:2rem;font-weight:600;color:var(--ink);line-height:1}
+.result-price-note{font-size:10px;color:var(--chrome);margin-top:3px;text-align:right}
+.result-badges{display:flex;flex-wrap:wrap;gap:.375rem;margin-bottom:1rem}
+.rbadge{padding:.28rem .65rem;border-radius:2px;font-size:.6rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.rbadge-green{background:rgba(39,174,96,.12);border:1px solid rgba(39,174,96,.3);color:#1a7a41}
+.rbadge-grey{background:rgba(0,0,0,.06);border:1px solid #C4C4C4;color:#4A4A4A}
+.rbadge-lite{background:rgba(255,255,255,.5);border:1px solid #D0D0D0;color:#606060}
+.rbadge-blue{background:rgba(52,152,219,.1);border:1px solid rgba(52,152,219,.25);color:#1a6ea8}
+.result-meta{display:flex;align-items:center;gap:1.25rem;padding-top:.875rem;border-top:1px solid #C8C8C8;flex-wrap:wrap}
+.result-stars{color:#B8860B;letter-spacing:2px;font-size:13px}
+.result-reviews,.result-shipping{font-size:11px;color:var(--chrome)}
+.result-actions{display:flex;flex-direction:column;gap:.5rem;min-width:140px;justify-content:center}
+
+/* Init / empty */
+.search-init-state{padding:5rem 1.5rem;text-align:center}
+.search-init-icon{width:72px;height:72px;margin:0 auto 1.5rem;border-radius:50%;background:linear-gradient(135deg,#CCCCCC 0%,#B8B8B8 100%);border:2px solid #B4B4B4;display:flex;align-items:center;justify-content:center;font-size:1.75rem;box-shadow:0 4px 16px rgba(0,0,0,.1)}
+.search-init-title{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;color:var(--ink);margin-bottom:.5rem}
+.search-init-sub{font-size:13px;color:var(--chrome);max-width:360px;margin:0 auto 2.5rem;line-height:1.6}
+.cat-quick-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:.5rem;max-width:800px;margin:0 auto}
+.cat-quick-item{display:flex;flex-direction:column;align-items:center;gap:.35rem;padding:.8rem .4rem;background:linear-gradient(160deg,#E8E8E8 0%,#DEDEDE 40%,#E4E4E4 60%,#D8D8D8 100%);border:1px solid #BBBBBB;border-radius:3px;cursor:pointer;transition:all .2s}
+.cat-quick-item:hover{border-color:#888;transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.12)}
+.cat-quick-icon{font-size:1.2rem;line-height:1}
+.cat-quick-label{font-size:.55rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#4A4A4A;text-align:center}
+.not-found-banner{background:linear-gradient(160deg,#E8E8E8 0%,#DEDEDE 40%,#E4E4E4 60%,#D8D8D8 100%);border:1px solid #C4C4C4;border-radius:3px;padding:2.5rem;text-align:center;margin-top:1.5rem}
+
+/* Modal */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(4px);z-index:999;display:none;align-items:center;justify-content:center;padding:1rem}
+.modal{background:linear-gradient(160deg,#E8E8E8 0%,#DEDEDE 40%,#E4E4E4 60%,#D8D8D8 100%);border:1px solid #BBBBBB;border-top-color:#D4D4D4;border-radius:3px;padding:2rem 2.25rem;max-width:480px;width:100%;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.55)}
+
+@media(max-width:860px){.search-dropdowns{grid-template-columns:1fr 1fr}#main-search-form [style*="grid-template-columns:1.4fr"]{grid-template-columns:1fr 1fr}.cat-quick-grid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:580px){.search-dropdowns{grid-template-columns:1fr}#main-search-form [style*="grid-template-columns:1.4fr"]{grid-template-columns:1fr}.result-card{flex-direction:column}.result-actions{flex-direction:row;min-width:auto}.result-yard-row{flex-direction:column}.cat-quick-grid{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body>
+<div id="navbar-mount"></div>
+
+<!-- SEARCH HERO -->
+<div class="search-hero">
+  <div class="search-hero-top">
+    <h1>
+      <span>All Used Auto Parts Warehouse</span>
+      Find the Right Part
+    </h1>
+    <p>Select your vehicle to instantly search 2,000+ verified yards nationwide. In-stock results with pricing in seconds.</p>
+    <div class="search-trust">
+      <div class="search-trust-item"><div class="dot"></div>6-Month Warranty</div>
+      <div class="search-trust-item"><div class="dot"></div>2,000+ Verified Yards</div>
+      <div class="search-trust-item"><div class="dot"></div>Ships All 50 States</div>
+      <div class="search-trust-item"><div class="dot"></div>&lt; 24-Hr Response</div>
+      <div class="search-trust-item"><div class="dot"></div>ASE-Certified Team</div>
+    </div>
+  </div>
+
+  <div class="search-widget-wrap">
+    <div class="search-widget">
+
+      <div class="search-widget-header">
+        <span class="search-widget-title">🔍 Search by Year, Make, Model &amp; Part</span>
+        <a href="tel:8888185001" class="search-widget-phone">📞 (888) 818-5001 &mdash; Mon–Sat 8am–6pm</a>
+      </div>
+
+      <div class="search-widget-body">
+        <form id="main-search-form" onsubmit="handleSearch(event)">
+
+          <!-- ROW 1: Year · Make · Model · Part Type -->
+          <div class="search-dropdowns" style="margin-bottom:.75rem">
+            <div>
+              <div class="search-drop-label"><span class="step-num">1</span> Year</div>
+              <select id="sel-year" name="year" class="search-select">
+                <option value="">-- Select Year --</option>
+              </select>
+            </div>
+            <div>
+              <div class="search-drop-label"><span class="step-num">2</span> Make</div>
+              <select id="sel-make" name="make" class="search-select" disabled>
+                <option value="">-- Select Year First --</option>
+              </select>
+            </div>
+            <div>
+              <div class="search-drop-label"><span class="step-num">3</span> Model</div>
+              <select id="sel-model" name="model" class="search-select" disabled>
+                <option value="">-- Select Make First --</option>
+              </select>
+            </div>
+            <div>
+              <div class="search-drop-label"><span class="step-num">4</span> Part Type</div>
+              <select id="sel-part" name="part" class="search-select" disabled>
+                <option value="">-- Select Model First --</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- ROW 2: State · City · Zip Code -->
+          <div style="display:grid;grid-template-columns:1.4fr 1.6fr 1fr;gap:.875rem;margin-bottom:1.1rem">
+            <div>
+              <div class="search-drop-label"><span class="step-num">5</span> State</div>
+              <select id="sel-state" name="state" class="search-select">
+                <option value="">All States</option>
+              </select>
+            </div>
+            <div>
+              <div class="search-drop-label" style="gap:.3rem">
+                <span class="step-num">6</span> City
+                <span style="font-size:.55rem;font-weight:400;letter-spacing:0;text-transform:none;color:#9A9A9A;margin-left:.2rem">(optional)</span>
+              </div>
+              <input type="text" id="sel-city" name="city" class="search-select" placeholder="e.g. Los Angeles" style="background:linear-gradient(180deg,#ECECEC 0%,#E0E0E0 100%)">
+            </div>
+            <div>
+              <div class="search-drop-label"><span class="step-num">7</span> Zip Code</div>
+              <input type="text" id="sel-zip" name="zip" class="search-select" placeholder="e.g. 90001" maxlength="5" style="background:linear-gradient(180deg,#ECECEC 0%,#E0E0E0 100%)">
+            </div>
+          </div>
+
+          <!-- Popular Part Pills -->
+          <div class="part-quick-picks" style="margin-top:.875rem">
+            <div class="part-quick-title">Popular Parts — Click to Quick-Select</div>
+            <div class="part-pills" id="quick-pills"></div>
+          </div>
+
+          <!-- Search button -->
+          <div class="search-btn-row">
+            <button type="submit" id="search-btn" class="btn-search-main" disabled>🔍 Search Available Parts</button>
+            <a href="tel:8888185001" class="btn-call-alt">📞 Call &amp; Order</a>
+            <a href="quote.html" class="btn-call-alt">💬 Free Quote</a>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RESULTS -->
+<div id="results-area">
+  <div id="results-header-bar" class="results-header-bar" style="display:none">
+    <div class="rh-inner">
+      <div>
+        <div class="results-title" id="results-title-text"></div>
+        <div class="results-subtitle" id="results-subtitle-text"></div>
+      </div>
+      <div class="results-notice">Prices are estimates — confirm with dealer</div>
+    </div>
+  </div>
+
+  <div class="container" style="padding-top:2.5rem">
+    <div id="init-state" class="search-init-state">
+      <div class="search-init-icon">🔧</div>
+      <div class="search-init-title">Search Our Nationwide Inventory</div>
+      <div class="search-init-sub">Select your vehicle year, make, model and the part you need above, then click Search to see pricing from verified yards.</div>
+      <div class="part-quick-title" style="margin-bottom:.625rem">Browse by Category</div>
+      <div class="cat-quick-grid" id="cat-shortcuts"></div>
+    </div>
+
+    <div id="results-list" style="display:none;flex-direction:column;gap:1rem"></div>
+
+    <div id="not-found" style="display:none" class="not-found-banner">
+      <div class="metal-line" style="margin-bottom:1.75rem"></div>
+      <p class="display-md" style="font-size:1.35rem;color:var(--ink);margin-bottom:.625rem">Don't see the right part?</p>
+      <p style="font-size:13px;color:var(--chrome);margin-bottom:1.5rem;max-width:380px;margin-left:auto;margin-right:auto;line-height:1.6">Our team can source from additional yards not listed here. Call or request a quote for immediate assistance.</p>
+      <div style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap">
+        <a href="tel:8888185001" class="btn btn-primary">📞 Call (888) 818-5001</a>
+        <a href="quote.html" class="btn btn-outline">Request Free Quote</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div id="modal" class="modal-overlay">
+  <div class="modal">
+    <div class="metal-line" style="position:absolute;top:0;left:0;right:0"></div>
+    <button onclick="closeModal()" style="position:absolute;top:1rem;right:1rem;background:none;border:none;cursor:pointer;color:var(--chrome);font-size:1.2rem;line-height:1">✕</button>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<div id="footer-mount"></div>
+<script src="_shared.js"></script>
+<script>
+document.getElementById('navbar-mount').innerHTML = renderNavbar('search');
+document.getElementById('footer-mount').innerHTML = renderFooter();
+
+const selYear  = document.getElementById('sel-year');
+const selMake  = document.getElementById('sel-make');
+const selModel = document.getElementById('sel-model');
+const selPart  = document.getElementById('sel-part');
+const selState = document.getElementById('sel-state');
+const searchBtn = document.getElementById('search-btn');
+
+// Populate year
+YEARS.forEach(y => selYear.innerHTML += `<option value="${y}">${y}</option>`);
+
+// Populate states
+US_STATES.forEach(s => selState.innerHTML += `<option value="${s.abbr}">${s.name}</option>`);
+
+selYear.addEventListener('change', function() {
+  selMake.disabled = !this.value;
+  selMake.innerHTML = '<option value="">-- Select Make --</option>';
+  if (this.value) CAR_MAKES.forEach(m => selMake.innerHTML += `<option value="${m}">${m}</option>`);
+  resetModel(); resetPart();
+});
+selMake.addEventListener('change', function() {
+  selModel.disabled = !this.value;
+  selModel.innerHTML = '<option value="">-- Select Model --</option>';
+  if (this.value) (CAR_MODELS[this.value]||[]).forEach(m => selModel.innerHTML += `<option value="${m}">${m}</option>`);
+  resetPart();
+});
+selModel.addEventListener('change', function() {
+  selPart.disabled = !this.value;
+  selPart.innerHTML = '<option value="">-- Select Part Type --</option>';
+  if (this.value) PART_CATEGORIES.forEach(cat => cat.parts.forEach(p => selPart.innerHTML += `<option value="${p}">${p}</option>`));
+  checkReady();
+});
+selPart.addEventListener('change', function() {
+  checkReady();
+  syncPill(this.value);
+});
+
+function resetModel() { selModel.disabled=true; selModel.innerHTML='<option value="">-- Select Make First --</option>'; }
+function resetPart() { selPart.disabled=true; selPart.innerHTML='<option value="">-- Select Model First --</option>'; searchBtn.disabled=true; clearPills(); }
+function checkReady() { searchBtn.disabled = !(selYear.value && selMake.value && selModel.value && selPart.value); }
+function clearPills() { document.querySelectorAll('.part-pill').forEach(p=>p.classList.remove('selected')); }
+function syncPill(val) { document.querySelectorAll('.part-pill').forEach(p=>p.classList.toggle('selected',p.textContent===val)); }
+
+// Popular parts quick pills
+const POPULAR = ['Complete Engine','Automatic Transmission','Transfer Case','Alternator','Starter Motor','Radiator','A/C Compressor','CV Axle','Steering Rack','ECU / PCM Module','Cylinder Head','Turbocharger'];
+const pillsWrap = document.getElementById('quick-pills');
+POPULAR.forEach(part => {
+  const el = document.createElement('span');
+  el.className = 'part-pill'; el.textContent = part;
+  el.onclick = () => {
+    clearPills(); el.classList.add('selected');
+    if (!selPart.disabled) {
+      if (!selPart.querySelector(`option[value="${part}"]`)) {
+        const o = document.createElement('option'); o.value=part; o.textContent=part; selPart.appendChild(o);
+      }
+      selPart.value = part; checkReady();
+    }
+  };
+  pillsWrap.appendChild(el);
+});
+
+// Category shortcuts
+const shortcuts = document.getElementById('cat-shortcuts');
+PART_CATEGORIES.forEach(cat => {
+  const el = document.createElement('div');
+  el.className = 'cat-quick-item';
+  el.innerHTML = `<span class="cat-quick-icon">${cat.icon}</span><span class="cat-quick-label">${cat.label}</span>`;
+  el.onclick = () => {
+    const firstPart = cat.parts[0];
+    clearPills();
+    document.querySelectorAll('.part-pill').forEach(p => { if(p.textContent===firstPart) p.classList.add('selected'); });
+    if (!selPart.disabled) { selPart.value=firstPart; checkReady(); }
+    document.querySelector('.search-widget').scrollIntoView({behavior:'smooth',block:'center'});
+  };
+  shortcuts.appendChild(el);
+});
+
+// Pre-fill from URL
+const sp = new URLSearchParams(location.search);
+const [uY, uMk, uMd, uP] = [sp.get('year'),sp.get('make'),sp.get('model'),sp.get('part')];
+if (uY) {
+  selYear.value = uY; selYear.dispatchEvent(new Event('change'));
+  setTimeout(() => {
+    if (uMk) { selMake.value=uMk; selMake.dispatchEvent(new Event('change')); }
+    setTimeout(() => {
+      if (uMd) { selModel.value=uMd; selModel.dispatchEvent(new Event('change')); }
+      setTimeout(() => {
+        if (uP) { selPart.value=uP; syncPill(uP); checkReady(); }
+        if (uY&&uMk&&uMd&&uP) renderResults();
+      }, 50);
+    }, 50);
+  }, 50);
+}
+
+function handleSearch(e) {
+  e.preventDefault();
+  if (searchBtn.disabled) return;
+  const city = document.getElementById('sel-city')?.value||'';
+  const zip  = document.getElementById('sel-zip')?.value||'';
+  const params = new URLSearchParams({year:selYear.value,make:selMake.value,model:selModel.value,part:selPart.value});
+  if (selState.value) params.set('state', selState.value);
+  if (city) params.set('city', city);
+  if (zip)  params.set('zip', zip);
+  history.replaceState(null,'',`?${params}`);
+  renderResults();
+  setTimeout(() => document.getElementById('results-area').scrollIntoView({behavior:'smooth'}), 80);
+}
+
+let cachedResults = [];
+function renderResults() {
+  const year=selYear.value, make=selMake.value, model=selModel.value, part=selPart.value;
+  if (!year||!make||!model||!part) return;
+
+  document.getElementById('init-state').style.display = 'none';
+  const list = document.getElementById('results-list');
+  const headerBar = document.getElementById('results-header-bar');
+  const notFound = document.getElementById('not-found');
+
+  list.style.display = 'flex'; headerBar.style.display = 'block'; notFound.style.display = 'none';
+  document.getElementById('results-title-text').textContent = `${part} — ${year} ${make} ${model}`;
+  document.getElementById('results-subtitle-text').textContent = 'Searching inventory...';
+
+  list.innerHTML = `<div style="padding:3rem;text-align:center;color:var(--chrome);font-size:13px">
+    <div style="width:34px;height:34px;border:3px solid #C4C4C4;border-top-color:#444;border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 1rem"></div>
+    Searching 2,000+ verified yards...
+  </div>`;
+
+  setTimeout(() => {
+    cachedResults = generateResults(year, make, model, part);
+    const locParts = [selState.value ? US_STATES.find(s=>s.abbr===selState.value)?.name : null, document.getElementById('sel-city')?.value||null].filter(Boolean);
+    const locStr = locParts.length ? ` · Near ${locParts.join(', ')}` : ' · Nationwide';
+    document.getElementById('results-subtitle-text').textContent = `${cachedResults.length} results found${locStr}`;
+
+    list.innerHTML = cachedResults.map(r => `
+    <div class="result-card${r.inStock?' in-stock':''}">
+      <div class="result-left">
+        <div class="result-yard-row">
+          <div>
+            <div class="result-yard-name">${r.yard.name}</div>
+            <div class="result-yard-loc">📍 ${r.yard.city}, ${r.yard.state}</div>
+          </div>
+          <div style="text-align:right;flex-shrink:0">
+            <div class="result-price">$${r.price.toLocaleString()}</div>
+            <div class="result-price-note">Estimated price</div>
+          </div>
+        </div>
+        <div class="result-badges">
+          ${r.inStock?`<span class="rbadge rbadge-green">✓ In Stock</span>`:`<span class="rbadge rbadge-grey">⏳ Sourcing</span>`}
+          <span class="rbadge rbadge-grey">Condition: ${r.condition}</span>
+          <span class="rbadge rbadge-lite">🏎 ${r.miles.toLocaleString()} mi</span>
+          <span class="rbadge rbadge-blue">🛡️ ${r.warranty} Warranty</span>
+          <span class="rbadge rbadge-lite">🚚 Ships in ${r.shipping} days</span>
+        </div>
+        <div class="result-meta">
+          <span class="result-stars">${'★'.repeat(r.yard.rating)}${'☆'.repeat(5-r.yard.rating)}</span>
+          <span class="result-reviews">${r.yard.reviews} reviews</span>
+          <span class="result-shipping">Free shipping on select orders</span>
+        </div>
+      </div>
+      <div class="result-actions">
+        ${r.inStock
+          ? `<button onclick="openModal(${r.id})" class="btn btn-primary" style="font-size:.6rem;padding:.8rem 1rem;width:100%">Get Quote</button>`
+          : `<button class="btn btn-outline" style="font-size:.6rem;padding:.8rem 1rem;width:100%">Notify Me</button>`}
+        <a href="tel:8888185001" class="btn btn-outline" style="font-size:.6rem;padding:.8rem 1rem;width:100%;text-align:center">📞 Call</a>
+      </div>
+    </div>`).join('');
+
+    notFound.style.display = 'block';
+  }, 600);
+}
+
+function openModal(id) {
+  const r = cachedResults.find(x=>x.id===id);
+  if (!r) return;
+  const year=selYear.value, make=selMake.value, model=selModel.value, part=selPart.value;
+  document.getElementById('modal-body').innerHTML = `
+    <h3 class="display-md" style="font-size:1.35rem;color:var(--ink);margin-bottom:.25rem">Request a Quote</h3>
+    <p style="font-size:12px;color:var(--chrome);margin-bottom:1.25rem">${year} ${make} ${model} &mdash; ${part}<br>
+    <strong style="color:var(--ink);font-size:14px">$${r.price.toLocaleString()}</strong> &bull; ${r.yard.name}, ${r.yard.city} ${r.yard.state}</p>
+    <div style="height:1px;background:linear-gradient(90deg,transparent,#B4B4B4,transparent);margin-bottom:1.5rem"></div>
+    <form id="modal-form" onsubmit="submitModal(event)">
+      <div style="display:flex;flex-direction:column;gap:.875rem">
+        <div><label class="input-label">Full Name *</label><input required type="text" name="name" placeholder="John Smith" class="input"></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem">
+          <div><label class="input-label">Phone *</label><input required type="tel" name="phone" placeholder="(555) 123-4567" class="input"></div>
+          <div><label class="input-label">Email</label><input type="email" name="email" placeholder="you@email.com" class="input"></div>
+        </div>
+        <div><label class="input-label">Notes</label><textarea name="notes" placeholder="Any specific details..." class="input" rows="2" style="resize:vertical"></textarea></div>
+        <button type="submit" class="btn-search-main" style="width:100%">📬 Send Quote Request</button>
+        <p style="font-size:11px;color:var(--chrome);text-align:center">Response within 24 hours &bull; No obligation</p>
+      </div>
+    </form>`;
+  document.getElementById('modal').style.display = 'flex';
+}
+function closeModal() { document.getElementById('modal').style.display='none'; }
+function submitModal(e) {
+  e.preventDefault();
+  const name = e.target.name.value;
+  document.getElementById('modal-body').innerHTML=`
+    <div style="text-align:center;padding:1.5rem 0;display:flex;flex-direction:column;align-items:center;gap:1.25rem">
+      <div style="width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#27ae60,#1e8449);display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:#fff;box-shadow:0 4px 16px rgba(39,174,96,.4)">✓</div>
+      <h3 class="display-md" style="font-size:1.5rem;color:var(--ink)">Request Sent!</h3>
+      <p style="font-size:13px;color:var(--steel);max-width:300px;line-height:1.6">
+        We'll contact <strong>${name}</strong> within 24 hours.<br><br>
+        <a href="tel:8888185001" style="color:var(--ink);font-weight:700;font-size:15px">(888) 818-5001</a><br>
+        <span style="font-size:11px;color:var(--chrome)">For urgent orders, call us directly</span>
+      </p>
+      <button onclick="closeModal()" class="btn btn-primary" style="font-size:.62rem;padding:.75rem 2rem">Done</button>
+    </div>`;
+}
+document.getElementById('modal').addEventListener('click',function(e){if(e.target===this)closeModal();});
+</script>
+</body>
+</html>

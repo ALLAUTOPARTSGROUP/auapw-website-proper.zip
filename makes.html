@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>All Car Makes | AUAPW</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="navbar-mount"></div>
+
+<div style="min-height:100vh;background:linear-gradient(160deg,#E8E8E8 0%,#DEDEDE 40%,#E4E4E4 60%,#D8D8D8 100%);padding-top:56px">
+  <div style="background:linear-gradient(160deg,#E8E8E8 0%,#DEDEDE 40%,#E4E4E4 60%,#D8D8D8 100%);border-bottom:1px solid var(--silver-lt)">
+    <div class="metal-line"></div>
+    <div class="container" style="padding-top:3.5rem;padding-bottom:3rem">
+      <div class="section-eye"><div class="eye-line"></div><span class="eyebrow">All Makes & Models</span></div>
+      <h1 class="display-md" style="font-size:clamp(1.75rem,4vw,4rem);color:var(--ink)">Shop by Brand</h1>
+      <p style="margin-top:.75rem;font-size:14px;color:var(--steel);max-width:500px">We source parts for every major make and model sold in the United States.</p>
+    </div>
+  </div>
+
+  <div style="background:#CCCCCC;border-bottom:1px solid var(--silver-lt);padding:1.25rem 0">
+    <div class="container">
+      <div style="background:linear-gradient(160deg,#E8E8E8 0%,#DEDEDE 40%,#E4E4E4 60%,#D8D8D8 100%);border:1px solid var(--silver-lt);border-radius:2px;padding:1.25rem 1.5rem">
+        <form id="search-form">
+          <div class="search-grid">
+            <div><label class="input-label">Year</label><select name="year" class="input"><option value="">Select Year</option></select></div>
+            <div><label class="input-label">Make</label><select name="make" class="input"><option value="">Select Make</option></select></div>
+            <div><label class="input-label">Model</label><select name="model" class="input" disabled><option value="">Select Make First</option></select></div>
+            <div><label class="input-label">Part Type</label><select name="part" class="input" disabled><option value="">Select Model First</option></select></div>
+          </div>
+          <div style="margin-top:.75rem"><button type="submit" class="btn btn-primary">🔍 Search Parts</button></div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" style="padding-top:3.5rem;padding-bottom:4rem">
+    <div class="grid-3" id="makes-grid"></div>
+  </div>
+
+  <!-- CTA -->
+  <section class="cta-section grad-platinum" style="position:relative">
+    <div class="metal-line" style="position:absolute;top:0;left:0;right:0"></div>
+    <div class="metal-line" style="position:absolute;bottom:0;left:0;right:0"></div>
+    <div class="container-sm">
+      <h2 class="display-md" style="font-size:clamp(1.5rem,3vw,2.5rem);color:var(--ink);margin-bottom:1rem">Find Parts for Any Make</h2>
+      <p style="color:var(--steel);font-size:.875rem;max-width:400px;margin:0 auto 2rem;line-height:1.7">Select your vehicle above or speak with our team for immediate assistance.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center">
+        <a href="quote.html" class="btn btn-primary">Request Free Quote</a>
+        <a href="tel:8888185001" class="btn btn-outline">📞 (888) 818-5001</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div id="footer-mount"></div>
+<script src="_shared.js"></script>
+<script>
+document.getElementById('navbar-mount').innerHTML = renderNavbar('makes');
+document.getElementById('footer-mount').innerHTML = renderFooter();
+initSearchForm('search-form');
+
+const grid = document.getElementById('makes-grid');
+CAR_MAKES.forEach(make => {
+  const models = CAR_MODELS[make] || [];
+  grid.innerHTML += `
+  <a href="make-detail.html?make=${encodeURIComponent(make)}" style="background:#CCCCCC;border:1px solid var(--silver-lt);border-radius:3px;padding:1.5rem;display:flex;align-items:center;justify-content:space-between;text-decoration:none;transition:all .25s;position:relative;overflow:hidden" 
+    onmouseover="this.style.borderColor='var(--chrome)';this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,.07)'" 
+    onmouseout="this.style.borderColor='var(--silver-lt)';this.style.transform='';this.style.boxShadow=''">
+    <div>
+      <h2 style="font-size:16px;font-weight:700;color:var(--ink)">${make}</h2>
+      <p style="font-size:11px;color:var(--chrome);margin-top:.25rem">${models.length} models available</p>
+    </div>
+    <span style="color:var(--chrome);font-size:1.1rem;flex-shrink:0">→</span>
+  </a>`;
+});
+</script>
+</body>
+</html>
