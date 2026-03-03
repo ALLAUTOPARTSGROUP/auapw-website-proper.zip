@@ -1,11 +1,10 @@
 {
   "name": "auapw-website",
   "version": "1.0.0",
-  "description": "All Auto Parts Worldwide Website",
   "scripts": {
-    "dev": "npx serve -l 3000"
+    "dev": "serve ."
   },
   "devDependencies": {
-    "serve": "^14.2.1"
+    "serve": "14.2.1"
   }
 }
