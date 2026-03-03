@@ -134,6 +134,8 @@ function renderNavbar(activePage='') {
         </div>
         <a href="about.html"${activePage==='about'?' class="active"':''}>About</a>
         <a href="contact.html"${activePage==='contact'?' class="active"':''}>Contact</a>
+        <a href="faq.html"${activePage==='faq'?' class="active"':''}>FAQ</a>
+        <a href="warranty.html"${activePage==='warranty'?' class="active"':''}>Warranty</a>
       </div>
       <div class="nav-right">
         <a href="tel:8888185001" class="nav-phone">
@@ -164,6 +166,9 @@ function renderNavbar(activePage='') {
     <div class="mobile-menu-section">Company</div>
     <a href="about.html">About Us</a>
     <a href="contact.html">Contact</a>
+    <a href="faq.html">FAQ</a>
+    <a href="warranty.html">Warranty</a>
+    <a href="careers.html">Careers</a>
     <a href="tel:8888185001" style="color:#c0392b">Call: (888) 818-5001</a>
   </div>`;
 }
@@ -211,6 +216,9 @@ function renderFooter() {
         <div class="links">
           <a href="about.html">About</a>
           <a href="contact.html">Contact</a>
+          <a href="faq.html">FAQ</a>
+          <a href="warranty.html">Warranty</a>
+          <a href="careers.html">Careers</a>
           <a href="parts.html">All Parts</a>
           <a href="makes.html">Car Brands</a>
         </div>

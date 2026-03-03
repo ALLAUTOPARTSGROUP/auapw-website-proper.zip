@@ -47,6 +47,40 @@ img{display:block;max-width:100%}
 @keyframes slideInRight{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:translateX(0)}}
 @keyframes scaleIn{from{opacity:0;transform:scale(0.9)}to{opacity:1;transform:scale(1)}}
 @keyframes borderGlow{0%,100%{border-color:#444}50%{border-color:#666}}
+@keyframes rotate3d{from{transform:rotateY(0deg)}to{transform:rotateY(360deg)}}
+@keyframes scanline{0%{top:-100%}100%{top:100%}}
+@keyframes typewriter{from{width:0}to{width:100%}}
+@keyframes neonPulse{0%,100%{text-shadow:0 0 5px #fff,0 0 10px #fff,0 0 20px #c0392b,0 0 30px #c0392b}50%{text-shadow:0 0 2px #fff,0 0 5px #fff,0 0 10px #c0392b,0 0 15px #c0392b}}
+
+/* ── Animation Utilities ── */
+.animate-fade-up{animation:fadeUp .6s ease forwards}
+.animate-fade-in{animation:fadeIn .5s ease forwards}
+.animate-slide-left{animation:slideInLeft .5s ease forwards}
+.animate-slide-right{animation:slideInRight .5s ease forwards}
+.animate-scale{animation:scaleIn .4s ease forwards}
+.animate-float{animation:float 3s ease-in-out infinite}
+.animate-pulse{animation:pulse 2s ease-in-out infinite}
+.animate-glow{animation:glow 2s ease-in-out infinite}
+.animate-border-glow{animation:borderGlow 2s ease-in-out infinite}
+.animate-neon{animation:neonPulse 2s ease-in-out infinite}
+.delay-100{animation-delay:100ms;opacity:0}
+.delay-200{animation-delay:200ms;opacity:0}
+.delay-300{animation-delay:300ms;opacity:0}
+.delay-400{animation-delay:400ms;opacity:0}
+.delay-500{animation-delay:500ms;opacity:0}
+.delay-600{animation-delay:600ms;opacity:0}
+
+/* ── Hover Effects ── */
+.hover-lift{transition:transform .25s,box-shadow .25s}.hover-lift:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.4)}
+.hover-glow{transition:box-shadow .3s}.hover-glow:hover{box-shadow:0 0 30px rgba(192,57,43,0.3)}
+.hover-scale{transition:transform .25s}.hover-scale:hover{transform:scale(1.02)}
+.hover-bright{transition:filter .25s}.hover-bright:hover{filter:brightness(1.1)}
+
+/* ── Glossy Glass Effects ── */
+.glass{background:rgba(30,30,30,0.7);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.1)}
+.glass-dark{background:rgba(10,10,10,0.8);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.05)}
+.glossy{background:linear-gradient(135deg,rgba(255,255,255,0.1) 0%,rgba(255,255,255,0) 50%,rgba(0,0,0,0.1) 100%)}
+.shine{position:relative;overflow:hidden}.shine::after{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:linear-gradient(45deg,transparent 30%,rgba(255,255,255,0.1) 50%,transparent 70%);transform:rotate(45deg);transition:all 0.5s}.shine:hover::after{left:100%}
 
 .shimmer-white{background:linear-gradient(90deg,#777777 0%,#AAAAAA 25%,#CCCCCC 40%,#999999 50%,#CCCCCC 60%,#AAAAAA 75%,#777777 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 4s linear infinite}
 .shimmer-dark{background:linear-gradient(90deg,#444444 0%,#222222 25%,#555555 45%,#888888 50%,#555555 55%,#222222 75%,#444444 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 4s linear infinite}
