@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FAQ | AUAPW</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.faq-item{background:var(--surface-card);border:1px solid #444;border-radius:4px;margin-bottom:1rem;overflow:hidden;transition:all 0.3s}
+.faq-item:hover{border-color:#666;box-shadow:0 4px 20px rgba(0,0,0,0.3)}
+.faq-question{padding:1.25rem 1.5rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;color:var(--ink);font-size:14px}
+.faq-question::after{content:'+';font-size:1.5rem;color:#666;transition:transform 0.3s}
+.faq-item.active .faq-question::after{transform:rotate(45deg);color:#c0392b}
+.faq-answer{padding:0 1.5rem;max-height:0;overflow:hidden;transition:all 0.3s;color:var(--chrome);font-size:13px;line-height:1.8}
+.faq-item.active .faq-answer{padding:0 1.5rem 1.5rem;max-height:500px}
+.faq-category{font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#666;margin:2rem 0 1rem;padding-bottom:0.5rem;border-bottom:1px solid #333}
+</style>
+</head>
+<body>
+<div id="navbar-mount"></div>
+
+<div style="min-height:100vh;background:#1A1A1A;padding-top:56px">
+  <section class="process-section grad-brushed" style="padding:5rem 0">
+    <div style="position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.03) 1px,transparent 1px);background-size:24px 24px"></div>
+    <div class="metal-line" style="position:absolute;top:0;left:0;right:0"></div>
+    <div class="metal-line" style="position:absolute;bottom:0;left:0;right:0"></div>
+    <div class="container" style="position:relative;z-index:5;text-align:center">
+      <div style="display:flex;align-items:center;justify-content:center;gap:1rem;margin-bottom:1.5rem">
+        <div style="height:1px;width:40px;background:#4a4a4a"></div>
+        <span class="eyebrow" style="color:#787878">Help Center</span>
+        <div style="height:1px;width:40px;background:#4a4a4a"></div>
+      </div>
+      <h1 class="display shimmer-white" style="font-size:clamp(2rem,5vw,4rem);margin-bottom:.75rem">Frequently Asked Questions</h1>
+      <p style="color:#787878;font-size:1rem;max-width:600px;margin:0 auto;line-height:1.7">Find answers to common questions about our parts, ordering, shipping, and warranty.</p>
+    </div>
+  </section>
+
+  <section style="padding:4rem 0">
+    <div class="container" style="max-width:800px">
+      <div class="faq-category">Ordering & Parts</div>
+      
+      <div class="faq-item">
+        <div class="faq-question">How do I search for a part?</div>
+        <div class="faq-answer">Use our search tool on the homepage or any parts page. Select your vehicle's year, make, model, and the part you need. We'll search our network of 2,000+ yards and get back to you within 24 hours with available options and pricing.</div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">Are the parts OEM or aftermarket?</div>
+        <div class="faq-answer">All parts sourced through AUAPW are genuine OEM (Original Equipment Manufacturer) parts that have been removed from salvage vehicles. We do not sell aftermarket parts - only quality used OEM parts.</div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">How do I know if a part will fit my vehicle?</div>
+        <div class="faq-answer">Our team verifies compatibility before providing a quote. We check VIN compatibility, interchange numbers, and manufacturer specifications to ensure the part will fit your specific vehicle.</div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">Can I request parts for older or rare vehicles?</div>
+        <div class="faq-answer">Yes! Our network includes specialty yards that focus on classic, vintage, and rare vehicles. Submit a quote request and our team will search our extended network for hard-to-find parts.</div>
+      </div>
+
+      <div class="faq-category">Shipping & Delivery</div>
+      
+      <div class="faq-item">
+        <div class="faq-question">How long does shipping take?</div>
+        <div class="faq-answer">Standard shipping typically takes 3-7 business days depending on your location and the part's origin. Expedited shipping options are available for an additional fee. Large items like engines and transmissions may take 5-10 business days.</div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">Do you ship to all 50 states?</div>
+        <div class="faq-answer">Yes, we ship to all 50 states. Parts ship directly from our partner yards to your door. Shipping costs vary based on part size, weight, and destination.</div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">Can I track my order?</div>
+        <div class="faq-answer">Yes, once your order ships you'll receive a tracking number via email. You can track your shipment directly through the carrier's website.</div>
+      </div>
+
+      <div class="faq-category">Warranty & Returns</div>
+      
+      <div class="faq-item">
+        <div class="faq-question">What warranty do parts come with?</div>
+        <div class="faq-answer">All parts come with a standard 6-month warranty covering defects and functionality issues. Some high-value parts like engines and transmissions may have extended warranty options available.</div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">What if the part doesn't work?</div>
+        <div class="faq-answer">If a part is defective or doesn't function properly, contact us within 6 months for a replacement or refund. We'll arrange return shipping and send a replacement part at no additional cost.</div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">Can I return a part if it doesn't fit?</div>
+        <div class="faq-answer">If a part doesn't fit despite our compatibility verification, contact us within 30 days. We'll work with you to find the correct part or issue a refund minus return shipping costs.</div>
+      </div>
+
+      <div class="faq-category">Payment & Pricing</div>
+      
+      <div class="faq-item">
+        <div class="faq-question">What payment methods do you accept?</div>
+        <div class="faq-answer">We accept all major credit cards (Visa, MasterCard, American Express, Discover), PayPal, and bank transfers for large orders. Payment is processed securely through our encrypted checkout system.</div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">Are your prices negotiable?</div>
+        <div class="faq-answer">Our prices are already competitive since we connect you directly with yards. However, for bulk orders or repeat customers, we may be able to offer additional discounts. Contact us to discuss.</div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">Is there a core charge?</div>
+        <div class="faq-answer">Some parts like alternators, starters, and certain engine components may have a core charge that's refunded when you return your old part. Core charges are clearly stated in the quote.</div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:4rem 0;text-align:center;background:#242424;border-top:1px solid #333">
+    <div class="container-sm">
+      <h2 class="display-md" style="font-size:clamp(1.5rem,3vw,2.5rem);color:var(--ink);margin-bottom:1rem">Still Have Questions?</h2>
+      <p style="font-size:14px;color:var(--chrome);margin-bottom:2rem;line-height:1.7">Our team is here to help. Contact us and we'll get back to you within 24 hours.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center">
+        <a href="contact.html" class="btn btn-primary">Contact Us</a>
+        <a href="tel:8888185001" class="btn btn-outline">Call (888) 818-5001</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div id="footer-mount"></div>
+<script src="_shared.js"></script>
+<script>
+document.getElementById('navbar-mount').innerHTML = renderNavbar('faq');
+document.getElementById('footer-mount').innerHTML = renderFooter();
+
+// FAQ accordion
+document.querySelectorAll('.faq-question').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement;
+    const wasActive = item.classList.contains('active');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+    if (!wasActive) item.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>

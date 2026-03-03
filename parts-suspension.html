@@ -2,14 +2,24 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title id="page-title">Parts | AUAPW</title>
+<title id="page-title">Suspension Parts | AUAPW</title>
 <link rel="stylesheet" href="style.css">
+<style>
+.led-tabs{display:flex;gap:1rem;margin-bottom:2rem;flex-wrap:wrap;justify-content:center}
+.led-tab{padding:0.75rem 1.5rem;border:2px solid transparent;border-radius:4px;background:linear-gradient(135deg,rgba(100,100,100,.2),rgba(80,80,80,.08));cursor:pointer;font-weight:600;font-size:0.9rem;transition:all 0.3s ease;position:relative;overflow:hidden;color:var(--ink)}
+.led-tab.active{border-color:#27ae60;background:linear-gradient(135deg,#27ae60,#1e8449);color:#fff;box-shadow:0 0 20px rgba(39,174,96,0.5),inset 0 1px 0 rgba(255,255,255,0.2)}
+.led-tab::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.4),transparent);animation:ledFlash 2s infinite;opacity:0}
+.led-tab.active::after{animation:ledFlash 1.5s infinite;opacity:1}
+@keyframes ledFlash{0%{left:-100%}100%{left:100%}}
+.graphics-display{min-height:200px;padding:1.5rem;border-radius:4px;background:var(--surface-card);border:1px solid #444;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;margin-bottom:2rem;box-shadow:0 0 30px rgba(39,174,96,0.15)}
+.graphics-display svg{width:120px;height:120px;margin-bottom:1rem}
+</style>
 </head>
 <body>
 <div id="navbar-mount"></div>
 
-<div style="min-height:100vh;background:linear-gradient(160deg,#E8E8E8 0%,#DEDEDE 40%,#E4E4E4 60%,#D8D8D8 100%);padding-top:56px">
-  <div style="background:linear-gradient(160deg,#E8E8E8 0%,#DEDEDE 40%,#E4E4E4 60%,#D8D8D8 100%);border-bottom:1px solid var(--silver-lt)">
+<div style="min-height:100vh;background:#1A1A1A;padding-top:56px">
+  <div style="background:linear-gradient(180deg,#242424 0%,#1F1F1F 100%);border-bottom:1px solid #444">
     <div class="metal-line"></div>
     <div class="container" style="padding-top:3rem;padding-bottom:2.5rem">
       <div class="breadcrumb">
@@ -18,16 +28,16 @@
         <span id="breadcrumb-label"></span>
       </div>
       <div style="display:flex;align-items:center;gap:1.25rem;margin-bottom:.75rem">
-        <span id="cat-icon" style="font-size:3rem;color:var(--silver-lt)"></span>
+        <span id="cat-icon" style="font-size:3rem;color:var(--chrome)"></span>
         <h1 id="page-heading" class="display-md" style="font-size:clamp(1.75rem,4vw,3.5rem);color:var(--ink)"></h1>
       </div>
-      <p id="page-desc" style="font-size:14px;color:var(--steel);max-width:620px"></p>
+      <p id="page-desc" style="font-size:14px;color:var(--chrome);max-width:620px"></p>
     </div>
   </div>
 
-  <div style="background:#CCCCCC;border-bottom:1px solid var(--silver-lt);padding:1.25rem 0">
+  <div style="background:#1F1F1F;border-bottom:1px solid #444;padding:1.25rem 0">
     <div class="container">
-      <div style="background:linear-gradient(160deg,#E8E8E8 0%,#DEDEDE 40%,#E4E4E4 60%,#D8D8D8 100%);border:1px solid var(--silver-lt);border-radius:2px;padding:1.25rem 1.5rem">
+      <div style="background:var(--surface-card);border:1px solid #444;border-radius:2px;padding:1.25rem 1.5rem">
         <form id="search-form">
           <div class="search-grid">
             <div><label class="input-label">Year</label><select name="year" class="input"><option value="">Select Year</option></select></div>
@@ -35,13 +45,26 @@
             <div><label class="input-label">Model</label><select name="model" class="input" disabled><option value="">Select Make First</option></select></div>
             <div><label class="input-label">Part Type</label><select name="part" class="input" disabled><option value="">Select Model First</option></select></div>
           </div>
-          <div style="margin-top:.75rem"><button type="submit" class="btn btn-primary">🔍 Search This Part</button></div>
+          <div style="margin-top:.75rem"><button type="submit" class="btn btn-primary">Search This Part</button></div>
         </form>
       </div>
     </div>
   </div>
 
-  <div class="container" style="padding-top:3rem;padding-bottom:4rem">
+  <div class="container" style="padding-top:2rem;padding-bottom:4rem">
+    <div class="led-tabs">
+      <button class="led-tab active" data-type="struts">Struts/Shocks</button>
+      <button class="led-tab" data-type="arms">Control Arms</button>
+      <button class="led-tab" data-type="brakes">Brake Systems</button>
+      <button class="led-tab" data-type="steering">Steering</button>
+    </div>
+    
+    <div class="graphics-display" id="graphics-display">
+      <svg viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg"><rect x="65" y="20" width="20" height="110" fill="#444" stroke="#27ae60" stroke-width="2"/><circle cx="75" cy="35" r="12" fill="#333" stroke="#666" stroke-width="2"/><ellipse cx="75" cy="120" rx="30" ry="10" fill="#333" stroke="#666" stroke-width="2"/></svg>
+      <div style="font-size:16px;font-weight:700;color:var(--ink);font-family:'Playfair Display',serif">Struts & Shocks</div>
+      <p style="color:var(--chrome);margin-top:0.5rem;max-width:400px;font-family:'Outfit',sans-serif;font-size:13px">Complete strut assemblies and shock absorbers</p>
+    </div>
+
     <div style="display:grid;grid-template-columns:1fr 280px;gap:2.5rem;align-items:start" id="content-grid">
       <div>
         <h2 style="font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);margin-bottom:1.25rem" id="parts-heading"></h2>
@@ -49,7 +72,7 @@
       </div>
       <div style="display:flex;flex-direction:column;gap:1rem">
         <div class="sidebar-panel">
-          <div style="padding:.875rem 1.25rem;background:#CCCCCC;border-bottom:1px solid var(--silver-lt)">
+          <div style="padding:.875rem 1.25rem;background:#333;border-bottom:1px solid #444">
             <span style="font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink)">Popular Makes</span>
           </div>
           <div style="padding:.5rem 0" id="makes-sidebar"></div>
@@ -58,18 +81,18 @@
           <div class="metal-line" style="margin-bottom:1.25rem"></div>
           <h3 style="font-size:13px;font-weight:700;color:#fff;margin-bottom:.75rem">Why AUAPW?</h3>
           <div style="display:flex;flex-direction:column;gap:.625rem;margin-bottom:1.25rem">
-            <span style="font-size:12px;color:#787878">🛡️ 6-Month Warranty</span>
-            <span style="font-size:12px;color:#787878">🔍 2,000+ Verified Yards</span>
-            <span style="font-size:12px;color:#787878">⚡ 24-Hour Response</span>
-            <span style="font-size:12px;color:#787878">🚚 Ships Nationwide</span>
-            <span style="font-size:12px;color:#787878">💰 Best Prices</span>
+            <span style="font-size:12px;color:#888">6-Month Warranty</span>
+            <span style="font-size:12px;color:#888">2,000+ Verified Yards</span>
+            <span style="font-size:12px;color:#888">24-Hour Response</span>
+            <span style="font-size:12px;color:#888">Ships Nationwide</span>
+            <span style="font-size:12px;color:#888">Best Prices</span>
           </div>
           <a href="quote.html" class="btn btn-white" style="width:100%;font-size:.65rem;padding:.75rem">Get Free Quote</a>
         </div>
-        <div class="card" style="padding:1.25rem;text-align:center;background:#CCCCCC">
-          <p style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--steel);margin-bottom:.375rem">Have a Question?</p>
+        <div class="card" style="padding:1.25rem;text-align:center;background:#333">
+          <p style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--chrome);margin-bottom:.375rem">Have a Question?</p>
           <a href="tel:8888185001" class="display-md" style="font-size:1.3rem;color:var(--ink);text-decoration:none;display:block">(888) 818-5001</a>
-          <p style="font-size:11px;color:var(--chrome);margin-top:.25rem">Mon–Sat 8am–6pm PST</p>
+          <p style="font-size:11px;color:var(--chrome);margin-top:.25rem">Mon-Sat 8am-6pm PST</p>
         </div>
       </div>
     </div>
@@ -82,10 +105,9 @@
 document.getElementById('navbar-mount').innerHTML = renderNavbar('parts');
 document.getElementById('footer-mount').innerHTML = renderFooter();
 
-// Detect which category from URL or filename
 const filename = location.pathname.split('/').pop().replace('.html','');
 const catId = filename.replace('parts-','');
-const cat = PART_CATEGORIES.find(c=>c.id===catId) || PART_CATEGORIES[0];
+const cat = PART_CATEGORIES.find(c=>c.id===catId) || PART_CATEGORIES[5];
 
 document.getElementById('page-title').textContent = `Used ${cat.label} | AUAPW`;
 document.getElementById('breadcrumb-label').textContent = cat.label;
@@ -96,23 +118,28 @@ document.getElementById('parts-heading').textContent = `${cat.label} Types`;
 
 initSearchForm('search-form');
 
-// Parts list
 const pl = document.getElementById('parts-list');
 cat.parts.forEach(p => {
   pl.innerHTML += `
   <a href="search.html?part=${encodeURIComponent(p)}" class="part-card" style="display:flex;align-items:center;justify-content:space-between;text-decoration:none">
     <div><p style="font-size:14px;font-weight:600;color:var(--ink)">${p}</p><p style="font-size:11px;color:var(--chrome);margin-top:.125rem">All makes & models</p></div>
-    <span style="color:var(--chrome);font-size:1rem;flex-shrink:0">→</span>
+    <span style="color:var(--chrome);font-size:1rem;flex-shrink:0">-></span>
   </a>`;
 });
 
-// Makes sidebar
 const ms = document.getElementById('makes-sidebar');
 CAR_MAKES.slice(0,10).forEach(m => {
-  ms.innerHTML += `<a href="makes.html" style="display:flex;align-items:center;justify-content:space-between;padding:.5rem 1.25rem;font-size:13px;color:var(--steel);text-decoration:none;transition:all .2s" onmouseover="this.style.background='var(--off-white)';this.style.color='var(--ink)'" onmouseout="this.style.background='';this.style.color='var(--steel)'">${m}<span style="opacity:.4">→</span></a>`;
+  ms.innerHTML += `<a href="makes.html" style="display:flex;align-items:center;justify-content:space-between;padding:.5rem 1.25rem;font-size:13px;color:var(--chrome);text-decoration:none;transition:all .2s" onmouseover="this.style.background='#444';this.style.color='var(--ink)'" onmouseout="this.style.background='';this.style.color='var(--chrome)'">${m}<span style="opacity:.4">-></span></a>`;
 });
 
-// Responsive
+// LED Tab switcher
+document.querySelectorAll('.led-tab').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.led-tab').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+
 function fixGrid(){const g=document.getElementById('content-grid');if(g)g.style.gridTemplateColumns=window.innerWidth<860?'1fr':'1fr 280px'}
 window.addEventListener('resize',fixGrid);fixGrid();
 </script>

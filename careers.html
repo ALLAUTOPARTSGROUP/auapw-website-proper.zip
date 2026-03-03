@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Careers | AUAPW</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.job-card{background:var(--surface-card);border:1px solid #444;border-radius:4px;padding:1.75rem;transition:all 0.3s;position:relative;overflow:hidden}
+.job-card:hover{border-color:#666;box-shadow:0 8px 32px rgba(0,0,0,0.4);transform:translateY(-2px)}
+.job-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#555,#888,#555,transparent);opacity:0;transition:opacity 0.3s}
+.job-card:hover::before{opacity:1}
+.job-tag{display:inline-block;padding:0.35rem 0.75rem;background:#333;border:1px solid #444;border-radius:3px;font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#888;margin-right:0.5rem;margin-bottom:0.5rem}
+.job-tag.remote{background:rgba(39,174,96,0.15);border-color:rgba(39,174,96,0.3);color:#7dd97d}
+.job-tag.fulltime{background:rgba(52,152,219,0.15);border-color:rgba(52,152,219,0.3);color:#5dade2}
+.perk-item{display:flex;gap:1rem;align-items:start;padding:1rem 0;border-bottom:1px solid #333}
+.perk-item:last-child{border-bottom:none}
+.perk-icon{width:40px;height:40px;border-radius:8px;background:#333;display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex-shrink:0}
+</style>
+</head>
+<body>
+<div id="navbar-mount"></div>
+
+<div style="min-height:100vh;background:#1A1A1A;padding-top:56px">
+  <section class="process-section grad-brushed" style="padding:5rem 0">
+    <div style="position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.03) 1px,transparent 1px);background-size:24px 24px"></div>
+    <div class="metal-line" style="position:absolute;top:0;left:0;right:0"></div>
+    <div class="metal-line" style="position:absolute;bottom:0;left:0;right:0"></div>
+    <div class="container" style="position:relative;z-index:5;text-align:center">
+      <div style="display:flex;align-items:center;justify-content:center;gap:1rem;margin-bottom:1.5rem">
+        <div style="height:1px;width:40px;background:#4a4a4a"></div>
+        <span class="eyebrow" style="color:#787878">Join Our Team</span>
+        <div style="height:1px;width:40px;background:#4a4a4a"></div>
+      </div>
+      <h1 class="display shimmer-white" style="font-size:clamp(2rem,5vw,4rem);margin-bottom:.75rem">Careers at AUAPW</h1>
+      <p style="color:#787878;font-size:1rem;max-width:600px;margin:0 auto;line-height:1.7">Help us revolutionize the used auto parts industry. We're always looking for talented people to join our growing team.</p>
+    </div>
+  </section>
+
+  <section style="padding:4rem 0">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start" id="careers-grid">
+        <div>
+          <h2 class="display-md" style="font-size:clamp(1.5rem,3vw,2.5rem);color:var(--ink);margin-bottom:1rem">Why Work With Us</h2>
+          <p style="font-size:14px;color:var(--chrome);line-height:1.8;margin-bottom:2rem">We're building something special at AUAPW. Our mission is to make quality auto parts accessible to everyone, and we need passionate people to help us get there.</p>
+          
+          <div class="perk-item">
+            <div class="perk-icon">$</div>
+            <div><strong style="color:var(--ink)">Competitive Salary</strong><p style="font-size:13px;color:var(--chrome);margin-top:0.25rem">Industry-leading compensation packages</p></div>
+          </div>
+          <div class="perk-item">
+            <div class="perk-icon">H</div>
+            <div><strong style="color:var(--ink)">Health Benefits</strong><p style="font-size:13px;color:var(--chrome);margin-top:0.25rem">Full medical, dental, and vision coverage</p></div>
+          </div>
+          <div class="perk-item">
+            <div class="perk-icon">R</div>
+            <div><strong style="color:var(--ink)">Remote Friendly</strong><p style="font-size:13px;color:var(--chrome);margin-top:0.25rem">Work from anywhere with flexible hours</p></div>
+          </div>
+          <div class="perk-item">
+            <div class="perk-icon">P</div>
+            <div><strong style="color:var(--ink)">Paid Time Off</strong><p style="font-size:13px;color:var(--chrome);margin-top:0.25rem">Generous PTO plus paid holidays</p></div>
+          </div>
+          <div class="perk-item">
+            <div class="perk-icon">G</div>
+            <div><strong style="color:var(--ink)">Growth Opportunities</strong><p style="font-size:13px;color:var(--chrome);margin-top:0.25rem">Clear paths for career advancement</p></div>
+          </div>
+        </div>
+        
+        <div>
+          <h2 class="display-md" style="font-size:clamp(1.5rem,3vw,2.5rem);color:var(--ink);margin-bottom:1.5rem">Open Positions</h2>
+          
+          <div class="job-card" style="margin-bottom:1rem">
+            <div style="margin-bottom:1rem">
+              <span class="job-tag fulltime">Full-Time</span>
+              <span class="job-tag remote">Remote</span>
+            </div>
+            <h3 style="font-size:16px;font-weight:700;color:var(--ink);margin-bottom:0.5rem">Customer Service Representative</h3>
+            <p style="font-size:13px;color:var(--chrome);line-height:1.6;margin-bottom:1rem">Help customers find the perfect parts for their vehicles. Excellent communication skills required.</p>
+            <a href="mailto:careers@auapw.com?subject=Application: Customer Service Representative" class="btn btn-outline" style="font-size:11px;padding:0.5rem 1rem">Apply Now</a>
+          </div>
+          
+          <div class="job-card" style="margin-bottom:1rem">
+            <div style="margin-bottom:1rem">
+              <span class="job-tag fulltime">Full-Time</span>
+              <span class="job-tag">Santa Clarita, CA</span>
+            </div>
+            <h3 style="font-size:16px;font-weight:700;color:var(--ink);margin-bottom:0.5rem">Parts Specialist</h3>
+            <p style="font-size:13px;color:var(--chrome);line-height:1.6;margin-bottom:1rem">Verify part compatibility and coordinate with partner yards. Automotive knowledge required.</p>
+            <a href="mailto:careers@auapw.com?subject=Application: Parts Specialist" class="btn btn-outline" style="font-size:11px;padding:0.5rem 1rem">Apply Now</a>
+          </div>
+          
+          <div class="job-card" style="margin-bottom:1rem">
+            <div style="margin-bottom:1rem">
+              <span class="job-tag fulltime">Full-Time</span>
+              <span class="job-tag remote">Remote</span>
+            </div>
+            <h3 style="font-size:16px;font-weight:700;color:var(--ink);margin-bottom:0.5rem">Sales Account Manager</h3>
+            <p style="font-size:13px;color:var(--chrome);line-height:1.6;margin-bottom:1rem">Build relationships with shops and fleet managers. 3+ years B2B sales experience preferred.</p>
+            <a href="mailto:careers@auapw.com?subject=Application: Sales Account Manager" class="btn btn-outline" style="font-size:11px;padding:0.5rem 1rem">Apply Now</a>
+          </div>
+          
+          <div class="job-card">
+            <div style="margin-bottom:1rem">
+              <span class="job-tag fulltime">Full-Time</span>
+              <span class="job-tag remote">Remote</span>
+            </div>
+            <h3 style="font-size:16px;font-weight:700;color:var(--ink);margin-bottom:0.5rem">Web Developer</h3>
+            <p style="font-size:13px;color:var(--chrome);line-height:1.6;margin-bottom:1rem">Help build and maintain our platform. Experience with React, Node.js, and databases required.</p>
+            <a href="mailto:careers@auapw.com?subject=Application: Web Developer" class="btn btn-outline" style="font-size:11px;padding:0.5rem 1rem">Apply Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:4rem 0;text-align:center;background:#242424;border-top:1px solid #333">
+    <div class="container-sm">
+      <h2 class="display-md" style="font-size:clamp(1.5rem,3vw,2.5rem);color:var(--ink);margin-bottom:1rem">Don't See Your Role?</h2>
+      <p style="font-size:14px;color:var(--chrome);margin-bottom:2rem;line-height:1.7">We're always looking for talented people. Send us your resume and tell us how you can contribute.</p>
+      <a href="mailto:careers@auapw.com" class="btn btn-primary">Send Your Resume</a>
+    </div>
+  </section>
+</div>
+
+<div id="footer-mount"></div>
+<script src="_shared.js"></script>
+<script>
+document.getElementById('navbar-mount').innerHTML = renderNavbar('careers');
+document.getElementById('footer-mount').innerHTML = renderFooter();
+function fixGrid(){const g=document.getElementById('careers-grid');if(g)g.style.gridTemplateColumns=window.innerWidth<860?'1fr':'1fr 1fr'}
+window.addEventListener('resize',fixGrid);fixGrid();
+</script>
+</body>
+</html>

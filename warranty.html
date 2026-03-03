@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Warranty | AUAPW</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.warranty-card{background:var(--surface-card);border:1px solid #444;border-radius:4px;padding:2rem;position:relative;overflow:hidden}
+.warranty-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#c0392b,#e74c3c,#c0392b)}
+.warranty-icon{width:60px;height:60px;border-radius:50%;background:#333;border:2px solid #444;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1.25rem}
+.warranty-steps{counter-reset:step}
+.warranty-step{counter-increment:step;position:relative;padding-left:4rem;padding-bottom:2rem;border-left:2px solid #333;margin-left:1.5rem}
+.warranty-step:last-child{border-left-color:transparent;padding-bottom:0}
+.warranty-step::before{content:counter(step);position:absolute;left:-1.25rem;top:0;width:2.5rem;height:2.5rem;background:#c0392b;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:14px}
+</style>
+</head>
+<body>
+<div id="navbar-mount"></div>
+
+<div style="min-height:100vh;background:#1A1A1A;padding-top:56px">
+  <section class="process-section grad-brushed" style="padding:5rem 0">
+    <div style="position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.03) 1px,transparent 1px);background-size:24px 24px"></div>
+    <div class="metal-line" style="position:absolute;top:0;left:0;right:0"></div>
+    <div class="metal-line" style="position:absolute;bottom:0;left:0;right:0"></div>
+    <div class="container" style="position:relative;z-index:5;text-align:center">
+      <div style="display:flex;align-items:center;justify-content:center;gap:1rem;margin-bottom:1.5rem">
+        <div style="height:1px;width:40px;background:#4a4a4a"></div>
+        <span class="eyebrow" style="color:#787878">Your Protection</span>
+        <div style="height:1px;width:40px;background:#4a4a4a"></div>
+      </div>
+      <h1 class="display shimmer-white" style="font-size:clamp(2rem,5vw,4rem);margin-bottom:.75rem">6-Month Warranty</h1>
+      <p style="color:#787878;font-size:1rem;max-width:600px;margin:0 auto;line-height:1.7">Every part we sell comes with our comprehensive warranty. No questions asked, no hassle returns.</p>
+    </div>
+  </section>
+
+  <section style="padding:4rem 0">
+    <div class="container">
+      <div class="grid-3" style="gap:1.5rem;margin-bottom:4rem" id="warranty-grid">
+        <div class="warranty-card">
+          <div class="warranty-icon">6M</div>
+          <h3 style="font-size:16px;font-weight:700;color:var(--ink);margin-bottom:0.75rem">6-Month Coverage</h3>
+          <p style="font-size:13px;color:var(--chrome);line-height:1.7">Full coverage for 6 months from the date of delivery. If your part fails within this period, we'll replace it or refund you.</p>
+        </div>
+        <div class="warranty-card">
+          <div class="warranty-icon">NQ</div>
+          <h3 style="font-size:16px;font-weight:700;color:var(--ink);margin-bottom:0.75rem">No Questions Asked</h3>
+          <p style="font-size:13px;color:var(--chrome);line-height:1.7">If the part doesn't work as expected, simply contact us. We don't require lengthy explanations or proof of installation.</p>
+        </div>
+        <div class="warranty-card">
+          <div class="warranty-icon">FS</div>
+          <h3 style="font-size:16px;font-weight:700;color:var(--ink);margin-bottom:0.75rem">Free Replacement Shipping</h3>
+          <p style="font-size:13px;color:var(--chrome);line-height:1.7">We cover the cost of shipping your replacement part. Just return the defective part and we'll send a new one free.</p>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start" id="warranty-details-grid">
+        <div>
+          <h2 class="display-md" style="font-size:clamp(1.5rem,3vw,2.5rem);color:var(--ink);margin-bottom:1.5rem">What's Covered</h2>
+          <div style="display:flex;flex-direction:column;gap:1rem">
+            <div style="display:flex;gap:1rem;align-items:start">
+              <span style="color:#27ae60;font-size:1.25rem">+</span>
+              <div><strong style="color:var(--ink)">Defective Parts</strong><p style="font-size:13px;color:var(--chrome);margin-top:0.25rem">Any manufacturing defects or pre-existing damage not disclosed at sale</p></div>
+            </div>
+            <div style="display:flex;gap:1rem;align-items:start">
+              <span style="color:#27ae60;font-size:1.25rem">+</span>
+              <div><strong style="color:var(--ink)">Functional Failures</strong><p style="font-size:13px;color:var(--chrome);margin-top:0.25rem">Parts that fail to perform their intended function under normal use</p></div>
+            </div>
+            <div style="display:flex;gap:1rem;align-items:start">
+              <span style="color:#27ae60;font-size:1.25rem">+</span>
+              <div><strong style="color:var(--ink)">Electrical Issues</strong><p style="font-size:13px;color:var(--chrome);margin-top:0.25rem">Electrical components that malfunction due to internal failures</p></div>
+            </div>
+            <div style="display:flex;gap:1rem;align-items:start">
+              <span style="color:#27ae60;font-size:1.25rem">+</span>
+              <div><strong style="color:var(--ink)">Missing Components</strong><p style="font-size:13px;color:var(--chrome);margin-top:0.25rem">If the part arrives missing components listed in the description</p></div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h2 class="display-md" style="font-size:clamp(1.5rem,3vw,2.5rem);color:var(--ink);margin-bottom:1.5rem">What's Not Covered</h2>
+          <div style="display:flex;flex-direction:column;gap:1rem">
+            <div style="display:flex;gap:1rem;align-items:start">
+              <span style="color:#c0392b;font-size:1.25rem">-</span>
+              <div><strong style="color:var(--ink)">Installation Damage</strong><p style="font-size:13px;color:var(--chrome);margin-top:0.25rem">Damage caused during installation or by improper installation</p></div>
+            </div>
+            <div style="display:flex;gap:1rem;align-items:start">
+              <span style="color:#c0392b;font-size:1.25rem">-</span>
+              <div><strong style="color:var(--ink)">Normal Wear</strong><p style="font-size:13px;color:var(--chrome);margin-top:0.25rem">Wear and tear that occurs through normal use after installation</p></div>
+            </div>
+            <div style="display:flex;gap:1rem;align-items:start">
+              <span style="color:#c0392b;font-size:1.25rem">-</span>
+              <div><strong style="color:var(--ink)">Accident Damage</strong><p style="font-size:13px;color:var(--chrome);margin-top:0.25rem">Damage from accidents, collisions, or other vehicle incidents</p></div>
+            </div>
+            <div style="display:flex;gap:1rem;align-items:start">
+              <span style="color:#c0392b;font-size:1.25rem">-</span>
+              <div><strong style="color:var(--ink)">Modified Parts</strong><p style="font-size:13px;color:var(--chrome);margin-top:0.25rem">Parts that have been modified, altered, or used for racing</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:4rem 0;background:#242424;border-top:1px solid #333">
+    <div class="container" style="max-width:700px">
+      <h2 class="display-md" style="font-size:clamp(1.5rem,3vw,2.5rem);color:var(--ink);margin-bottom:2rem;text-align:center">How to Make a Claim</h2>
+      <div class="warranty-steps">
+        <div class="warranty-step">
+          <h3 style="font-size:15px;font-weight:700;color:var(--ink);margin-bottom:0.5rem">Contact Us</h3>
+          <p style="font-size:13px;color:var(--chrome);line-height:1.7">Call us at (888) 818-5001 or email info@auapw.com with your order number and a description of the issue.</p>
+        </div>
+        <div class="warranty-step">
+          <h3 style="font-size:15px;font-weight:700;color:var(--ink);margin-bottom:0.5rem">Get Return Authorization</h3>
+          <p style="font-size:13px;color:var(--chrome);line-height:1.7">We'll provide a return authorization number and prepaid shipping label for the defective part.</p>
+        </div>
+        <div class="warranty-step">
+          <h3 style="font-size:15px;font-weight:700;color:var(--ink);margin-bottom:0.5rem">Ship the Part Back</h3>
+          <p style="font-size:13px;color:var(--chrome);line-height:1.7">Package the part securely and ship it back using the provided label. Keep your tracking number.</p>
+        </div>
+        <div class="warranty-step">
+          <h3 style="font-size:15px;font-weight:700;color:var(--ink);margin-bottom:0.5rem">Receive Replacement or Refund</h3>
+          <p style="font-size:13px;color:var(--chrome);line-height:1.7">Once we receive the part, we'll ship your replacement within 24-48 hours or process your refund.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:4rem 0;text-align:center">
+    <div class="container-sm">
+      <h2 class="display-md" style="font-size:clamp(1.5rem,3vw,2.5rem);color:var(--ink);margin-bottom:1rem">Questions About Warranty?</h2>
+      <p style="font-size:14px;color:var(--chrome);margin-bottom:2rem;line-height:1.7">Our team is here to help with any warranty questions or claims.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center">
+        <a href="contact.html" class="btn btn-primary">Contact Us</a>
+        <a href="faq.html" class="btn btn-outline">View FAQ</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div id="footer-mount"></div>
+<script src="_shared.js"></script>
+<script>
+document.getElementById('navbar-mount').innerHTML = renderNavbar('warranty');
+document.getElementById('footer-mount').innerHTML = renderFooter();
+function fixGrids(){
+  const g1=document.getElementById('warranty-grid');
+  const g2=document.getElementById('warranty-details-grid');
+  if(g1)g1.style.gridTemplateColumns=window.innerWidth<768?'1fr':'repeat(3,1fr)';
+  if(g2)g2.style.gridTemplateColumns=window.innerWidth<768?'1fr':'1fr 1fr';
+}
+window.addEventListener('resize',fixGrids);fixGrids();
+</script>
+</body>
+</html>
