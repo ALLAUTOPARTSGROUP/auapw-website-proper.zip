@@ -2,8 +2,10 @@
   "name": "auapw-website",
   "version": "1.0.0",
   "description": "All Auto Parts Worldwide Website",
-  "type": "module",
   "scripts": {
-    "dev": "node -e \"const http = require('http'); const fs = require('fs'); http.createServer((q, s) => { let f = q.url === '/' ? '/index.html' : q.url.split('?')[0]; f = f.endsWith('/') ? f + 'index.html' : f; try { s.end(fs.readFileSync('.' + f)); } catch(e) { s.statusCode = 404; s.end('Not found'); } }).listen(3000); console.log('Server running on http://localhost:3000'); \""
+    "dev": "npx serve -l 3000"
+  },
+  "devDependencies": {
+    "serve": "^14.2.1"
   }
 }
