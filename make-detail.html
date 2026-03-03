@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title id="page-title">Parts | AUAPW</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="navbar-mount"></div>
+
+<div style="min-height:100vh;background:linear-gradient(160deg,#E8E8E8 0%,#DEDEDE 40%,#E4E4E4 60%,#D8D8D8 100%);padding-top:56px">
+  <div style="background:linear-gradient(160deg,#E8E8E8 0%,#DEDEDE 40%,#E4E4E4 60%,#D8D8D8 100%);border-bottom:1px solid var(--silver-lt)">
+    <div class="metal-line"></div>
+    <div class="container" style="padding-top:3rem;padding-bottom:2.5rem">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a><span>/</span>
+        <a href="makes.html">Car Makes</a><span>/</span>
+        <span id="bread-make"></span>
+      </div>
+      <h1 id="page-heading" class="display-md" style="font-size:clamp(1.75rem,4vw,3.5rem);color:var(--ink)"></h1>
+      <p id="page-desc" style="margin-top:.75rem;font-size:14px;color:var(--steel);max-width:560px"></p>
+    </div>
+  </div>
+
+  <div style="background:#CCCCCC;border-bottom:1px solid var(--silver-lt);padding:1.25rem 0">
+    <div class="container">
+      <div style="background:linear-gradient(160deg,#E8E8E8 0%,#DEDEDE 40%,#E4E4E4 60%,#D8D8D8 100%);border:1px solid var(--silver-lt);border-radius:2px;padding:1.25rem 1.5rem">
+        <form id="search-form">
+          <div class="search-grid">
+            <div><label class="input-label">Year</label><select name="year" class="input"><option value="">Select Year</option></select></div>
+            <div><label class="input-label">Make</label><select name="make" class="input"><option value="">Select Make</option></select></div>
+            <div><label class="input-label">Model</label><select name="model" class="input" disabled><option value="">Select Make First</option></select></div>
+            <div><label class="input-label">Part Type</label><select name="part" class="input" disabled><option value="">Select Model First</option></select></div>
+          </div>
+          <div style="margin-top:.75rem"><button type="submit" class="btn btn-primary">🔍 Search Parts</button></div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" style="padding-top:3rem;padding-bottom:4rem">
+    <div style="display:grid;grid-template-columns:1fr 280px;gap:2.5rem;align-items:start" id="content-grid">
+      <div>
+        <h2 id="models-heading" style="font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);margin-bottom:1.25rem"></h2>
+        <div id="models-grid" style="display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:3rem"></div>
+
+        <h2 style="font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);margin-bottom:1.25rem" id="parts-heading"></h2>
+        <div style="display:flex;flex-direction:column;gap:.75rem" id="parts-cats"></div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:1rem">
+        <div class="sidebar-dark">
+          <div class="metal-line" style="margin-bottom:1.25rem"></div>
+          <h3 id="cta-heading" style="font-size:13px;font-weight:700;color:#fff;margin-bottom:.625rem"></h3>
+          <p style="font-size:12px;color:#787878;margin-bottom:1.25rem">Use the search above or call us directly.</p>
+          <a href="quote.html" class="btn btn-white" style="width:100%;font-size:.65rem;padding:.75rem;display:block;text-align:center;margin-bottom:.5rem">Get Free Quote</a>
+          <a href="tel:8888185001" class="btn btn-outline" style="width:100%;font-size:.65rem;padding:.75rem;border-color:rgba(255,255,255,.2);color:#c8c8c8;display:block;text-align:center">Call (888) 818-5001</a>
+        </div>
+        <div class="sidebar-panel">
+          <div style="padding:.875rem 1.25rem;background:#CCCCCC;border-bottom:1px solid var(--silver-lt)">
+            <span style="font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink)">Other Makes</span>
+          </div>
+          <div style="padding:.5rem 0" id="other-makes"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="footer-mount"></div>
+<script src="_shared.js"></script>
+<script>
+document.getElementById('navbar-mount').innerHTML = renderNavbar('makes');
+document.getElementById('footer-mount').innerHTML = renderFooter();
+
+const sp = new URLSearchParams(location.search);
+const make = sp.get('make') || CAR_MAKES[0];
+const models = CAR_MODELS[make] || [];
+
+document.getElementById('page-title').textContent = `Used ${make} Parts | AUAPW`;
+document.getElementById('bread-make').textContent = make;
+document.getElementById('page-heading').textContent = `Used ${make} Parts`;
+document.getElementById('page-desc').textContent = `Quality used ${make} engines, transmissions and every component. 6-month warranty. Ships nationwide.`;
+document.getElementById('models-heading').textContent = `${make} Models`;
+document.getElementById('parts-heading').textContent = `Parts Available for ${make}`;
+document.getElementById('cta-heading').textContent = `Find ${make} Parts Fast`;
+
+initSearchForm('search-form', {make});
+
+// Models
+const mg = document.getElementById('models-grid');
+models.forEach(m => {
+  mg.innerHTML += `<a href="search.html?make=${encodeURIComponent(make)}&model=${encodeURIComponent(m)}" style="padding:.5rem .875rem;border:1px solid var(--silver-lt);font-size:12px;font-weight:600;color:var(--steel);text-decoration:none;border-radius:2px;transition:all .2s" onmouseover="this.style.background='var(--plat)';this.style.borderColor='var(--chrome)';this.style.color='var(--charcoal)'" onmouseout="this.style.background='';this.style.borderColor='var(--silver-lt)';this.style.color='var(--steel)'">${m}</a>`;
+});
+
+// Parts by category
+const pc = document.getElementById('parts-cats');
+PART_CATEGORIES.forEach(cat => {
+  const partsHtml = cat.parts.map(p => `<a href="search.html?make=${encodeURIComponent(make)}&part=${encodeURIComponent(p)}" style="padding:.25rem .625rem;background:linear-gradient(160deg,#E8E8E8 0%,#DEDEDE 40%,#E4E4E4 60%,#D8D8D8 100%);border:1px solid var(--silver-lt);font-size:11px;font-weight:500;color:var(--steel);text-decoration:none;border-radius:2px;display:inline-block;margin:.125rem;transition:all .2s" onmouseover="this.style.borderColor='var(--chrome)';this.style.color='var(--ink)'" onmouseout="this.style.borderColor='var(--silver-lt)';this.style.color='var(--steel)'">${p}</a>`).join('');
+  pc.innerHTML += `<div style="background:#CCCCCC;border:1px solid var(--silver-lt);border-radius:2px;padding:1.25rem"><h3 style="font-size:13px;font-weight:700;color:var(--ink);margin-bottom:.875rem">${cat.label}</h3><div>${partsHtml}</div></div>`;
+});
+
+// Other makes
+const om = document.getElementById('other-makes');
+CAR_MAKES.filter(m=>m!==make).slice(0,10).forEach(m => {
+  om.innerHTML += `<a href="make-detail.html?make=${encodeURIComponent(m)}" style="display:flex;align-items:center;justify-content:space-between;padding:.5rem 1.25rem;font-size:13px;color:var(--steel);text-decoration:none;transition:all .2s" onmouseover="this.style.background='var(--off-white)';this.style.color='var(--ink)'" onmouseout="this.style.background='';this.style.color='var(--steel)'">${m}<span style="opacity:.4">→</span></a>`;
+});
+
+function fixGrid(){const g=document.getElementById('content-grid');if(g)g.style.gridTemplateColumns=window.innerWidth<860?'1fr':'1fr 280px'}
+window.addEventListener('resize',fixGrid);fixGrid();
+</script>
+</body>
+</html>
